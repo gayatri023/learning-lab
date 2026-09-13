@@ -15,6 +15,7 @@ This repository is where I keep track of what I'm learning and, more importantly
 * **CI/CD** — GitHub Actions and automated testing
 * **Codebase exploration** — understanding unfamiliar repositories, structure, tests, and conventions
 * **Contributions** — notes and records from working with external projects
+* **Open-source workflow** — reading unfamiliar codebases, issue tracking, and contribution norms
 
 ## Structure
 
