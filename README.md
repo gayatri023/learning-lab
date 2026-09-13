@@ -15,6 +15,8 @@ This repository is where I keep track of what I'm learning and, more importantly
 * **CI/CD** — GitHub Actions and automated testing
 * **Codebase exploration** — understanding unfamiliar repositories, structure, tests, and conventions
 * **Contributions** — notes and records from working with external projects
+* **Environment & tooling** — WSL2, package management, and debugging real-world setup issues
+
 
 ## Structure
 
