@@ -16,3 +16,36 @@ Goal:
 Practice user input, variables, strings, formatting,
 and basic program output.
 """
+
+from datetime import date
+
+# Get information from the user
+name = input("What is your name? ")
+age = input("How old are you? ")
+city = input("Which city do you live in? ")
+profession = input("What is your profession? ")
+hobby = input("What is your favorite hobby? ")
+
+# Get today's date
+today = date.today()
+
+# Create the introduction
+introduction = (
+    f"Hi! My name is {name}. I am {age} years old and I live in {city}. "
+    f"I work as a {profession}, and in my free time, I enjoy {hobby}."
+)
+
+# Decorative border
+border = "=" * 60
+
+# Display the final profile
+print()
+print(border)
+print("              PERSONAL PROFILE")
+print(border)
+print()
+print(introduction)
+print()
+print(f"Profile generated on: {today}")
+print()
+print(border)
