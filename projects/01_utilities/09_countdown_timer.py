@@ -12,3 +12,19 @@ Bonus:
 - Use a beep sound (`\a`) at the end if the terminal supports it
 - Prevent negative or non-integer inputs
 """
+
+import time
+
+seconds = int(input("Enter timer duration in seconds: "))
+
+while seconds > 0:
+    minutes = seconds // 60
+    remaining_seconds = seconds % 60
+
+    print(f"{minutes:02d}:{remaining_seconds:02d}", end="\r")
+
+    time.sleep(1)
+    seconds -= 1
+
+print("00:00")
+print("⏰ Time's up! \a")
