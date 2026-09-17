@@ -20,3 +20,44 @@ Bonus:
 - Handle punctuation (like commas or periods right after keywords)
 
 """
+
+# get dictionary
+emoji_map = {
+	"love": "❤️",
+	"happy": "😊",
+	"code": "💻",
+    	"tea": "🍵 ",
+	"music": "🎵",
+	"food": "🍕"
+}
+
+#get user message
+message = input("what is your message? ")
+
+# process each word
+words = message.split(" ")
+
+new_words = []
+
+for word in words:
+	cleaned = word.lower().strip(".,!?")
+	emoji = emoji_map.get(cleaned, "")
+	if emoji:
+		punctuation = word[-1] if word[-1] in ",.!?" else ""
+		base_word = word[:1] if punctuation else word
+		new_words.append(f"{word} {emoji}")
+	else:
+		new_words.append(word)
+
+updated_message = " ".join(new_words)
+print("\n Enhanced message: \n")
+print(updated_message)
+
+
+
+
+
+
+
+
+#
