@@ -19,3 +19,38 @@ Example:
 Today I learned about how list comprehensions work in Python!
 Productivity Rating: 4/5
 """
+
+from datetime import datetime
+
+number = int(input("How many things did you learn today? "))
+learnings = []
+
+for i in range(number):
+	learning = input(f"What did you learn # {i+1} ? ")
+	learnings.append(learning)
+
+while True:
+    try:
+        rating = int(input("How productive was your day? (1-5): "))
+
+        if 1 <= rating <= 5:
+            break
+
+        print("Please enter a rating between 1 and 5.")
+
+    except ValueError:
+        print("Please enter a number between 1 and 5.")
+
+now = datetime.now()
+timestamp = now.strftime("%Y-%m-%d — %I:%M %p")
+
+with open("learning_journal.txt", "a") as file:    # create or open a  file and with help to  work with it and then properly close it when I'm finished and "a" shows append
+	file.write(f"📅 {timestamp}\n")
+
+	for learning in learnings:
+		file.write(f"- {learning}\n")
+
+	file.write(f"Productivity Rating: {rating}/5\n")
+	file.write("\n")
+
+print("✅ Journal entry saved successfully!")
