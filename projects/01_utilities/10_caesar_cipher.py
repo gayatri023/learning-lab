@@ -23,3 +23,29 @@ Bonus:
 - Allow uppercase and lowercase letter handling
 - Show a clean interface
 """
+
+message = input("Enter your message: ")
+key = int(input("Enter the secret key: "))
+
+choice = input("Do you want to Encrypt (E) or Decrypt (D)? ").lower()
+
+result = ""
+
+for char in message:
+    if char.isalpha():
+        if char.islower():
+            start = ord("a")
+        else:
+            start = ord("A")
+
+        if choice == "e":
+            new_char = chr((ord(char) - start + key) % 26 + start)
+        else:
+            new_char = chr((ord(char) - start - key) % 26 + start)
+
+        result += new_char
+
+    else:
+        result += char
+
+print("Result:", result)
