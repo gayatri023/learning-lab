@@ -17,3 +17,43 @@ Your program should:
 Bonus:
 - Hide password input using `getpass` (no echo on screen).
 """
+
+import random
+import string
+
+password = input("Enter your password: ")
+
+missing = []
+
+if len(password) < 8:
+    missing.append("at least 8 characters")
+
+if not any(char.isupper() for char in password):
+    missing.append("an uppercase letter")
+
+if not any(char.islower() for char in password):
+    missing.append("a lowercase letter")
+
+if not any(char.isdigit() for char in password):
+    missing.append("a digit")
+
+if not any(char in "@#$%&*!" for char in password):
+    missing.append("a special character")
+
+if missing:
+    print("\nYour password is weak.")
+    print("You are missing:")
+
+    for item in missing:
+        print("-", item)
+
+    characters = string.ascii_letters + string.digits + "@#$%&*!"
+    suggestion = ""
+
+    for i in range(12):
+        suggestion += random.choice(characters)
+
+    print("\nSuggested password:", suggestion)
+
+else:
+    print("\nYour password is strong! ✓")
