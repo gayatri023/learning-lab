@@ -32,37 +32,98 @@ Bonus:
 - Prevent empty tasks from being added
 - Validate task numbers before completing/deleting
 """
-tasks = []
 
-def add_task():
-	task = input("Add the task: ")
-	tasks.append(task)
+import os   # it can operating system module in python  which can help you to traverse with the directory. It can list any directory, list the directory content. It can check for whether the file exists or not. It can create directories and files and read them permissions.
 
-def view_tasl():
-	print("\nYour Tasks:")
+TASK_FILE = "task.txt"
 
-	for i, task in enumerate(tasks, start=1):
-        print(f"{i}. {task}")
+def load_tasks():
+	tasks = []
+	if(os.path.exists(TASK_FILE)):
+		with open(TASK_FILE, 'r', encoding= "utf-8") as f:
+			for line in f:
+				text, status = line.strip().rsplit("||", 1)
+				tasks.append({
+					"text" : text,
+					"done": status == "done"
+				})
+	return tasks
 
-def completed_task():
-	
+def save_tasks(tasks):
+	with open(TASK_FILE, "w", encoding = "utf-8") as f:
+		for task in tasks:
+			status  = "done" if task["done"] else "not_done"
+			f.write(f"{task['text']}||{status}\n")
 
-while True:
-	print("Add a task")
-	print("2. View Tasks")
-    	print("3. Mark Task as Completed")
-    	print("4. Delete Task")
-    	print("5. Exit")
+def display_tasks(tasks):
+	if not in tasks:
+		print(f"No tasks found")
+	else:
+		for i, task in enumerate(task, 1):
+			checkbox = "✅" if task["done"] else " "
+			print(f"{i}. [{checkbox}] {task['text']}"}
+		print()
 
-	choice = input("Choose an option: ")
+def task_manager():
+	tasks = load_tasks()
 
-	if choice == "1":
-		add_task()
-	elif choice == "2":
-		view_tasks()
-	elif choice == "3":
-		completed_task()
-	elif choice == "4":
-		delete_task()
-	elif choice == "5"
-		break
+	while True:
+		print("\n ------Task List Manager ------")
+		print("1. Add task")
+		print("2. View tasks")
+		print("3. Mark task as complete")
+		print("4. Delete task")
+		print("5. Add Exit")
+
+	choice = input("Choose an option (1-5)").strip()
+
+	match choice:
+		case "1":
+			text = input("Enter your task").strip()
+			if text:
+				tasks.append({"text":text, "dpme": False})
+				save_tasks(tasks)
+			else:
+				print("Task cannot be empty")
+
+		case "2": 
+			display_task(tasks)
+
+		case "3":
+			display_tasks(tasks)
+			try: 
+				num = int(input("Enter task number"))
+				if 1 <= num <= len(tasks):
+					tasks[num-1]["done"] = True
+					print("task marked as DONE")
+				else:
+					print("Invalid task number")
+			except ValueError:
+				print("Please enter a number")
+
+		case "4":
+			display_tasks(tasks)
+                        try:
+                                num = int(input("Enter task number to delete"))
+                                if 1 <= num <= len(tasks):
+                                        removed = tasks.pop(num-1)
+					save_tasks(task)
+                                        print(f"task removed {removed['text']}")
+                                else:
+                                        print("Invalid task number")
+                        except ValueError:
+                                print("Please enter a number")
+
+		case "5":
+			print("Exiting task manager")
+			break
+		case _:
+			print("Please choose a valid option")
+
+
+
+
+task_manager()
+
+
+
