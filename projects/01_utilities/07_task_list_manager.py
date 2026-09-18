@@ -56,12 +56,12 @@ def save_tasks(tasks):
 			f.write(f"{task['text']}||{status}\n")
 
 def display_tasks(tasks):
-	if not in tasks:
+	if not tasks:
 		print(f"No tasks found")
 	else:
-		for i, task in enumerate(task, 1):
+		for i, task in enumerate(tasks, 1):
 			checkbox = "✅" if task["done"] else " "
-			print(f"{i}. [{checkbox}] {task['text']}"}
+			print(f"{i}. [{checkbox}] {task['text']}")
 		print()
 
 def task_manager():
@@ -73,54 +73,52 @@ def task_manager():
 		print("2. View tasks")
 		print("3. Mark task as complete")
 		print("4. Delete task")
-		print("5. Add Exit")
+		print("5. Exit")
 
-	choice = input("Choose an option (1-5)").strip()
+		choice = input("Choose an option (1-5)").strip()
 
-	match choice:
-		case "1":
-			text = input("Enter your task").strip()
-			if text:
-				tasks.append({"text":text, "dpme": False})
-				save_tasks(tasks)
-			else:
-				print("Task cannot be empty")
-
-		case "2": 
-			display_task(tasks)
-
-		case "3":
-			display_tasks(tasks)
-			try: 
-				num = int(input("Enter task number"))
-				if 1 <= num <= len(tasks):
-					tasks[num-1]["done"] = True
-					print("task marked as DONE")
+		match choice:
+			case "1":
+				text = input("Enter your task").strip()
+				if text:
+					tasks.append({"text":text, "dpme": False})
+					save_tasks(tasks)
 				else:
-					print("Invalid task number")
-			except ValueError:
-				print("Please enter a number")
+					print("Task cannot be empty")
 
-		case "4":
-			display_tasks(tasks)
-                        try:
-                                num = int(input("Enter task number to delete"))
-                                if 1 <= num <= len(tasks):
-                                        removed = tasks.pop(num-1)
-					save_tasks(task)
-                                        print(f"task removed {removed['text']}")
-                                else:
-                                        print("Invalid task number")
-                        except ValueError:
-                                print("Please enter a number")
+			case "2": 
+				display_tasks(tasks)
 
-		case "5":
-			print("Exiting task manager")
-			break
-		case _:
-			print("Please choose a valid option")
+			case "3":
+				display_tasks(tasks)
+				try: 
+					num = int(input("Enter task number"))
+					if 1 <= num <= len(tasks):
+						tasks[num-1]["done"] = True
+						print("task marked as DONE")
+					else:
+						print("Invalid task number")
+				except ValueError:
+					print("Please enter a number")
 
+			case "4":
+				display_tasks(tasks)
+                        	try:
+                                	num = int(input("Enter task number to delete"))
+                                	if 1 <= num <= len(tasks):
+                                        	removed = tasks.pop(num-1)
+						save_tasks(task)
+                                        	print(f"task removed {removed['text']}")
+                                	else:
+                                        	print("Invalid task number")
+                        	except ValueError:
+                                	print("Please enter a number")
 
+			case "5":
+				print("Exiting task manager")
+				break
+			case _:
+				print("Please choose a valid option")
 
 
 task_manager()
