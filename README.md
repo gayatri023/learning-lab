@@ -1,44 +1,21 @@
 # Learning Lab
 
-A running collection of practical software engineering work, experiments, notes, and projects.
+A growing collection of programming exercises, structured learning notes, experiments, and small projects as I work toward stronger software engineering skills.
 
-This repository is where I keep track of what I'm learning and, more importantly, what I actually build and work through along the way.
+This repository is a work in progress. It currently contains beginner-level Python exercises and practical projects, alongside notes from my ongoing learning. Not every topic listed below has been studied or implemented yet.
 
-## Areas
+## Current focus
 
-* **Python** — language fundamentals, decorators, generators, iterators, debugging, and practical patterns
-* **Git & GitHub** — branches, rebasing, conflicts, commits, pull requests, and collaboration
-* **Testing** — pytest, fixtures, parametrization, mocking, and regression testing
-* **Backend** — HTTP, REST APIs, FastAPI, Flask, JSON, and authentication concepts
-* **Databases** — SQL, SQLite, data modelling, and ORM concepts
-* **Linux** — CLI tools, environments, processes, and development workflows
-* **CI/CD** — GitHub Actions and automated testing
-* **Codebase exploration** — understanding unfamiliar repositories, structure, tests, and conventions
-* **Contributions** — notes and records from working with external projects
-* **Git advanced workflows** — stashing, branching strategy, and understanding merge vs rebase
-* **Debugging & investigation** — reading error output, tracing root causes, verifying assumptions with git diff/git show
+- **Python fundamentals:** small utilities, problem-solving, and practice exercises.
+- **Structured learning:** working through tutorials and learning materials, documenting what I complete.
+- **Software engineering skills:** gradually exploring Git, testing, debugging, and project organization through hands-on practice.
 
-## Structure
+## Planned learning areas
 
-```text
-learning-lab/
-├── python/              # Python experiments and exercises
-├── git/                 # Git workflow practice
-├── testing/             # Testing and pytest work
-├── backend/             # APIs and backend experiments
-├── databases/           # SQL and database work
-├── linux/               # Linux and CLI practice
-├── ci/                  # CI/CD and automation
-├── codebase-notes/      # Notes from exploring unfamiliar codebases
-├── contributions/       # External contribution records
-├── projects/            # Larger experiments and projects
-└── notes/               # General engineering notes
-```
+As my skills develop, I aim to explore automated testing, backend development, databases, Linux, CI/CD, and contributing to open-source projects. These are learning goals, not claims of completed experience.
 
-## Learning log
+## How this repository develops
 
-The repository will change as the work develops.
+I add exercises, projects, and notes as I work through them. The goal is to track genuine progress, understand mistakes, and gradually build more complete applications.
 
-Notes are kept alongside the relevant code so that experiments, mistakes, debugging sessions, repository investigations, and lessons learned remain connected to the work that produced them.
-
-There is no fixed curriculum here. Topics and projects will be added as I encounter problems worth understanding and skills worth developing.
+This repository reflects an ongoing learning journey rather than a finished portfolio.
